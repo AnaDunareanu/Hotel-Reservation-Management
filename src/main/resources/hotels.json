@@ -1,0 +1,39 @@
+[
+  {
+      "name": "Hotel Ramada",
+      "latitude": 46.764654252624204,
+      "longitude": 23.598674125224626,
+      "rooms": [
+        {
+          "roomNumber": 210,
+          "type": 2,
+          "price": 200, "isAvailable": true
+        },
+        {
+          "roomNumber": 125,
+          "type": 1,
+          "price": 350,
+          "isAvailable": true
+        },
+        {
+            "roomNumber": 87,
+            "type": 1,
+            "price": 300,
+            "isAvailable": false
+        }
+      ]
+  },
+
+  {
+    "name": "Grand Hotel Italia",
+    "latitude": 46.7522792440665,
+    "longitude": 23.605990381045697,
+    "rooms": [
+      {
+        "roomNumber": 41,
+        "type": 3,
+        "price": 240, "isAvailable": true
+      }
+    ]
+  }
+]
