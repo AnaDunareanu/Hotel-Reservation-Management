@@ -21,4 +21,8 @@ public class Room {
     @ManyToOne
     @JoinColumn(name = "hotel_id", nullable = false)
     private Hotel hotel;
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
 }

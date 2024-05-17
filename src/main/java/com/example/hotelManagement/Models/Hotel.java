@@ -19,11 +19,19 @@ public class Hotel {
     private Long id;
 
     private String name;
-    private String address;
     private double latitude;
     private double longitude;
 
-    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Room> rooms;
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+        if (rooms != null) {
+            for (Room room : rooms) {
+                room.setHotel(this);
+            }
+        }
+    }
 
 }
