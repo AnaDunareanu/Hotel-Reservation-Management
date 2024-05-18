@@ -38,7 +38,7 @@ public class hotelController {
             Model model
     ) {
         model.addAttribute("hotels", hotelService.findNearbyHotels(latitude, longitude, radius));
-        return "nearbyHotels"; // Render the nearbyHotels.html template with the results
+        return "nearbyHotels";
     }
 
     @GetMapping("/hotels")

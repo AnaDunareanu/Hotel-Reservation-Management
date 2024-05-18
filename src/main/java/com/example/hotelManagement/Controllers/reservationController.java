@@ -1,5 +1,6 @@
 package com.example.hotelManagement.Controllers;
 
+import com.example.hotelManagement.Models.Feedback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.hotelManagement.Service.roomService;
 import com.example.hotelManagement.Models.Room;
+import com.example.hotelManagement.Service.feedbackService;
 
 import java.util.List;
+
+//Implemented the rest controller to handle functionality
 
 @RestController
 @RequestMapping("/api")
@@ -19,6 +23,9 @@ public class reservationController {
 
     @Autowired
     private roomService roomService;
+
+    @Autowired
+    private feedbackService feedbackService;
 
     @GetMapping("/hotel/{hotelId}/available-rooms")
     public ResponseEntity<List<Room>> getAvailableRooms(@PathVariable Long hotelId) {
@@ -50,14 +57,14 @@ public class reservationController {
         }
     }
 
-//    @PostMapping("/change-reservation/{roomId}")
-//    public ResponseEntity<String> changeReservation(@PathVariable Long roomId) {
-//        boolean changeSuccess = roomService.changeReservation(roomId);
-//        if (changeSuccess) {
-//            return new ResponseEntity<>("Reservation changed successfully", HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>("Unable to change reservation", HttpStatus.BAD_REQUEST);
-//        }
-//    }
+    @PostMapping("/hotel/{hotelId}/feedback")
+    public ResponseEntity<String> submitFeedback(@PathVariable Long hotelId, @RequestBody Feedback feedback) {
+        boolean feedbackSubmitted = feedbackService.submitFeedback(hotelId, feedback);
+        if (feedbackSubmitted) {
+            return new ResponseEntity<>("Feedback submitted successfully", HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>("Failed to submit feedback", HttpStatus.BAD_REQUEST);
+        }
+    }
 
 }
