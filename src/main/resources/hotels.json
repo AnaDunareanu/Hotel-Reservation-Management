@@ -7,7 +7,8 @@
         {
           "roomNumber": 210,
           "type": 2,
-          "price": 200, "isAvailable": true
+          "price": 200,
+          "isAvailable": true
         },
         {
           "roomNumber": 125,
@@ -32,7 +33,8 @@
       {
         "roomNumber": 41,
         "type": 3,
-        "price": 240, "isAvailable": true
+        "price": 240,
+        "isAvailable": true
       }
     ]
   }
