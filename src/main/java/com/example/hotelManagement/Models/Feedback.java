@@ -18,7 +18,6 @@ public class Feedback {
     private String comment;
     private int rating; //rating out of 5
 
-    // Relationships
     @ManyToOne
     @JoinColumn(name = "hotel_id")
     private Hotel hotel;

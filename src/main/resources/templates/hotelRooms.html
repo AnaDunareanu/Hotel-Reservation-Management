@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Rooms</title>
+</head>
+<body>
+<h1>Hotel Rooms</h1>
+<ul>
+  <li th:each="reservation : ${reservations}">
+    Room Number: <span th:text="${reservation.room.roomNumber}"></span>,
+    Price: <span th:text="${reservation.room.price}"></span>
+    <form th:action="@{/book-room}" method="post">
+      <input type="hidden" name="room.id" th:value="${reservation.room.id}" />
+      <input type="hidden" name="checkIn" value="2024-01-01T14:00" />
+      <input type="hidden" name="checkOut" value="2024-01-02T12:00" />
+      <button type="submit">Book Room</button>
+    </form>
+  </li>
+</ul>
+</body>
+</html>
